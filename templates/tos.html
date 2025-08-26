@@ -1,4 +1,4 @@
-{%include "base.html" %}
+{%extends "base.html" %}
 {% block content %}
 
   <main class="main">
@@ -147,7 +147,7 @@
             <div class="contact-content">
               <h4>Questions About Terms?</h4>
               <p>If you have any questions about these Terms, please contact us.</p>
-              <a href="#" class="contact-link">Contact Support</a>
+              <a href="{{url_for('support')}}" class="contact-link">Contact Support</a>
             </div>
           </div>
         </div>

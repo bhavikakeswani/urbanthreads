@@ -41,12 +41,12 @@
             <div class="footer-widget">
               <h4>Support</h4>
               <ul class="footer-links">
-                <li><a href="support.html">Help Center</a></li>
+                <li><a href="{{url_for('support')}}">Help Center</a></li>
                 <li><a href="account.html">Order Status</a></li>
-                <li><a href="shiping-info.html">Shipping Info</a></li>
-                <li><a href="return-policy.html">Returns &amp; Exchanges</a></li>
+                <li><a href="{{url_for('shipping_info')}}">Shipping Info</a></li>
+                <li><a href="{{url_for('return_policy')}}">Returns &amp; Exchanges</a></li>
                 <li><a href="#">Size Guide</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -119,9 +119,9 @@
               </div>
 
               <div class="legal-links">
-                <a href="tos.html">Terms</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="tos.html">Cookies</a>
+                <a href="{{url_for('TermsOfService')}}">Terms</a>
+                <a href="{{url_for('privacy')}}">Privacy</a>
+                <a href="{{url_for('TermsOfService')}}">Cookies</a>
               </div>
             </div>
           </div>

@@ -152,8 +152,8 @@
       <div class="container-fluid container-xl position-relative">
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="{{url_for('home')}}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{{url_for('about')}}" class="{% if request.endpoint == 'about' %}active{% endif %}">About</a></li>
             <!-- Products Mega Menu 2 -->
             <li class="products-megamenu-2"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
 
@@ -440,7 +440,7 @@
             <!-- End Products Mega Menu 2 -->
              <li><a href="#" >New Arrival</a></li>
             <li><a href="#">Bestsellers</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{url_for('contact')}}" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
 
           </ul>
         </nav>

@@ -14,5 +14,33 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/support')
+def support():
+    return render_template('support.html')
+
+@app.route('/shipping-info')
+def shipping_info():
+    return render_template('shipping-info.html')
+
+@app.route('/return-policy')
+def return_policy():
+    return render_template('return-policy.html')
+
+@app.route('/terms-of-service')
+def TermsOfService():
+    return render_template('tos.html')
+
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
