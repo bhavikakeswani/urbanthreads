@@ -42,5 +42,9 @@ def TermsOfService():
 def privacy():
     return render_template('privacy.html')
 
+@app.route('/categories')
+def category():
+    return render_template('category.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
