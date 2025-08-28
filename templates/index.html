@@ -171,11 +171,13 @@
         <div class="row g-5">
 
           <!-- Product 1 -->
+          {% for product in products %}
           <div class="col-lg-3 col-md-6">
             <div class="product-item">
               <div class="product-image">
                 <div class="product-badge">Limited</div>
-                <img src="{{ url_for('static', filename='assets/img/product/product-1.webp')}}" alt="Product Image" class="img-fluid" loading="lazy">
+                <!-- <img src="{{ url_for('static', filename='assets/img/product/product-1.webp')}}" alt="Product Image" class="img-fluid" loading="lazy"> -->
+                <img src="{{product.image}}" alt="Product Image" class="img-fluid" loading="lazy">
                 <div class="product-actions">
                   <button class="action-btn wishlist-btn">
                     <i class="bi bi-heart"></i>
@@ -190,8 +192,8 @@
                 <button class="cart-btn">Select Options</button>
               </div>
               <div class="product-info">
-                <div class="product-category">Premium Collection</div>
-                <h4 class="product-name"><a href="product-details.html">Mauris blandit aliquet elit</a></h4>
+                <div class="product-category">Best Sellers</div>
+                <h4 class="product-name"><a href="#">{{product.title}}</a></h4>
                 <div class="product-rating">
                   <div class="stars">
                     <i class="bi bi-star-fill"></i>
@@ -200,9 +202,9 @@
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star"></i>
                   </div>
-                  <span class="rating-count">(24)</span>
+                  <span class="rating-count">({{product.rating.count}})</span>
                 </div>
-                <div class="product-price">$189.00</div>
+                <div class="product-price">${{product.price}}</div>
                 <div class="color-swatches">
                   <span class="swatch active" style="background-color: #2563eb;"></span>
                   <span class="swatch" style="background-color: #059669;"></span>
@@ -211,10 +213,11 @@
               </div>
             </div>
           </div>
+          {% endfor %}
           <!-- End Product 1 -->
 
           <!-- Product 2 -->
-          <div class="col-lg-3 col-md-6">
+          <!-- <div class="col-lg-3 col-md-6">
             <div class="product-item">
               <div class="product-image">
                 <div class="product-badge sale-badge">25% Off</div>
@@ -256,11 +259,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- End Product 2 -->
 
           <!-- Product 3 -->
-          <div class="col-lg-3 col-md-6">
+          <!-- <div class="col-lg-3 col-md-6">
             <div class="product-item">
               <div class="product-image">
                 <img src="{{ url_for('static', filename='assets/img/product/product-7.webp')}}" alt="Product Image" class="img-fluid" loading="lazy">
@@ -298,11 +301,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- End Product 3 -->
 
           <!-- Product 4 -->
-          <div class="col-lg-3 col-md-6">
+          <!-- <div class="col-lg-3 col-md-6">
             <div class="product-item">
               <div class="product-image">
                 <div class="product-badge trending-badge">Trending</div>
@@ -341,7 +344,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- End Product 4 -->
 
         </div>
@@ -362,30 +365,32 @@
                 <i class="bi bi-fire"></i> Trending Now
               </h3>
               <div class="product-list">
+                {% for product in trending_now %}
                 <div class="product-card">
                   <div class="product-image">
-                    <img src="{{ url_for('static', filename='assets/img/product/product-1.webp')}}" alt="Premium Leather Tote" class="img-fluid">
+                    <img src="{{product.image}}" alt="Premium Leather Tote" class="img-fluid">
                     <div class="product-badges">
                       <span class="badge-new">New</span>
                     </div>
                   </div>
                   <div class="product-info">
-                    <h4 class="product-name">Premium Leather Tote</h4>
+                    <h4 class="product-name">{{product.title}}</h4>
                     <div class="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-half"></i>
-                      <span>(24)</span>
+                      <span>({{product.rating.count}})</span>
                     </div>
                     <div class="product-price">
-                      <span class="current-price">$87.50</span>
+                      <span class="current-price">${{product.price}}</span>
                     </div>
                   </div>
                 </div>
+                {% endfor %}
 
-                <div class="product-card">
+                <!-- <div class="product-card">
                   <div class="product-image">
                     <img src="{{ url_for('static', filename='assets/img/product/product-3.webp')}}" alt="Statement Earrings" class="img-fluid">
                   </div>
@@ -423,8 +428,8 @@
                       <span class="current-price">$45.00</span>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div>-->
+              </div> 
             </div>
           </div>
 
@@ -434,31 +439,33 @@
                 <i class="bi bi-award"></i> Best Sellers
               </h3>
               <div class="product-list">
+                {% for product in bestsellers %}
                 <div class="product-card">
                   <div class="product-image">
-                    <img src="{{ url_for('static', filename='assets/img/product/product-2.webp')}}" alt="Slim Fit Denim" class="img-fluid">
-                    <div class="product-badges">
+                    <img src="{{product.image}}" alt="Slim Fit Denim" class="img-fluid">
+                    <!-- <div class="product-badges">
                       <span class="badge-sale">-15%</span>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="product-info">
-                    <h4 class="product-name">Slim Fit Denim</h4>
+                    <h4 class="product-name">{{product.title}}</h4>
                     <div class="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
-                      <span>(87)</span>
+                      <span>({{product.rating.count}})</span>
                     </div>
                     <div class="product-price">
-                      <span class="current-price">$68.00</span>
-                      <span class="old-price">$80.00</span>
+                      <span class="current-price">${{product.price}}</span>
+                      <!-- <span class="old-price">$80.00</span> -->
                     </div>
                   </div>
                 </div>
+                {% endfor %}
 
-                <div class="product-card">
+                <!-- <div class="product-card">
                   <div class="product-image">
                     <img src="{{ url_for('static', filename='assets/img/product/product-6.webp')}}" alt="Designer Handbag" class="img-fluid">
                   </div>
@@ -499,7 +506,7 @@
                       <span class="current-price">$95.50</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -510,27 +517,29 @@
                 <i class="bi bi-star"></i> Featured Items
               </h3>
               <div class="product-list">
+                {% for product in featured_products %}
                 <div class="product-card">
                   <div class="product-image">
-                    <img src="{{ url_for('static', filename='assets/img/product/product-7.webp')}}" alt="Pleated Midi Skirt" class="img-fluid">
+                    <img src="{{product.image}}" alt="Pleated Midi Skirt" class="img-fluid">
                   </div>
                   <div class="product-info">
-                    <h4 class="product-name">Pleated Midi Skirt</h4>
+                    <h4 class="product-name">{{product.title}}</h4>
                     <div class="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star"></i>
-                      <span>(32)</span>
+                      <span>({{product.rating.count}})</span>
                     </div>
                     <div class="product-price">
-                      <span class="current-price">$75.00</span>
+                      <span class="current-price">${{product.price}}</span>
                     </div>
                   </div>
                 </div>
+                {% endfor %}
 
-                <div class="product-card">
+                <!-- <div class="product-card">
                   <div class="product-image">
                     <img src="{{ url_for('static', filename='assets/img/product/product-4.webp')}}" alt="Geometric Earrings" class="img-fluid">
                     <div class="product-badges">
@@ -571,7 +580,7 @@
                       <span class="current-price">$89.99</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -627,7 +636,7 @@
           </div>
         </div>
 
-        <div class="row featured-products-row" data-aos="fade-up" data-aos-delay="500">
+         <!-- <div class="row featured-products-row" data-aos="fade-up" data-aos-delay="500">
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="product-showcase">
               <div class="product-image">
@@ -650,9 +659,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Product Showcase -->
+          </div>-->
+          <!-- End Product Showcase --> 
 
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+          <!-- <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="150">
             <div class="product-showcase">
               <div class="product-image">
                 <img src="{{ url_for('static', filename='assets/img/product/product-7.webp')}}" alt="Featured Product" class="img-fluid">
@@ -674,9 +684,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Product Showcase -->
+          </div> -->
+          <!-- End Product Showcase -->
 
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <!-- <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="product-showcase">
               <div class="product-image">
                 <img src="{{ url_for('static', filename='assets/img/product/product-11.webp')}}" alt="Featured Product" class="img-fluid">
@@ -697,10 +708,11 @@
                   <span class="rating-count">(267)</span>
                 </div>
               </div>
-            </div>
-          </div><!-- End Product Showcase -->
+            </div> 
+          </div>-->
+          <!-- End Product Showcase -->
 
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="250">
+          <!-- <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="250">
             <div class="product-showcase">
               <div class="product-image">
                 <img src="{{ url_for('static', filename='assets/img/product/product-1.webp')}}" alt="Featured Product" class="img-fluid">
@@ -722,12 +734,13 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Product Showcase -->
-        </div>
+          </div>-->
+          <!-- End Product Showcase -->
+        <!-- </div>/Call To Action Section -->
 
       </div>
 
-    </section><!-- /Call To Action Section -->
+    </section>
 
   </main>
 
